@@ -5,6 +5,10 @@ class PloughView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Scaffold(
+         appBar: AppBar(
+          title: Text('Plough Controller'),
+          centerTitle: true,
+        ),
         body: Center(
           child: Text(
             'Plough View',

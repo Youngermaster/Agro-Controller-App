@@ -1,4 +1,8 @@
 import 'package:agro_controller_app/views/motor/motor_view.dart';
+import 'package:agro_controller_app/views/plough/plough_view.dart';
+import 'package:agro_controller_app/views/tank/tank_view.dart';
+import 'package:agro_controller_app/widgets/appWidth/appWidth.dart';
+import 'package:agro_controller_app/widgets/cardSection/card_section.dart';
 import 'package:flutter/material.dart';
 
 class ControllerView extends StatelessWidget {
@@ -6,45 +10,11 @@ class ControllerView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('Main Controllers'),
-              Row(
-                children: [
-                  RaisedButton(
-                    child: Text('Open route'),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => MotorView()),
-                      );
-                    },
-                  ),
-                  FlatButton(
-                    onPressed: () => print("Stuff"),
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 60, vertical: 15),
-                      child: Text(
-                        'title',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w800,
-                          color: Colors.white,
-                        ),
-                      ),
-                      decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 31, 229, 146),
-                          borderRadius: BorderRadius.circular(5)),
-                    ),
-                  ),
-                ],
-              )
-            ],
-          )
+          CardSection(MotorView(), 'Motor Controller'),
+          CardSection(PloughView(), 'Plough Controller'),
+          CardSection(TankView(), 'Tank Controller'),
         ],
       ),
     );

@@ -48,19 +48,20 @@ class _HomeViewState extends State<HomeView> {
               Icon(
                 Icons.gamepad,
                 size: 30,
-                color: Colors.greenAccent[700],
+                color: Colors.white,
               ),
               Icon(
                 Icons.poll,
                 size: 30,
-                color: Colors.greenAccent[700],
+                color: Colors.white,
               ),
             ],
-            color: Colors.white,
-            buttonBackgroundColor: Colors.white,
-            backgroundColor: Colors.grey[900],
+            color: Colors.green,
+            buttonBackgroundColor: Colors.green,
+            backgroundColor: Colors.white,
             animationCurve: Curves.easeInOut,
             animationDuration: Duration(milliseconds: 350),
+
             onTap: (index) {
               setState(() {
                 _showPage = _pageChooser(index);
@@ -68,7 +69,6 @@ class _HomeViewState extends State<HomeView> {
             },
           ),
           body: Container(
-            color: Colors.orangeAccent,
             child: Center(
               child: _showPage,
             ),

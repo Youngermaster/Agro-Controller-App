@@ -5,6 +5,10 @@ class TankView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Scaffold(
+         appBar: AppBar(
+          title: Text('Hay Tank Controller'),
+          centerTitle: true,
+        ),
         body: Center(
           child: Text(
             'Tank View',
