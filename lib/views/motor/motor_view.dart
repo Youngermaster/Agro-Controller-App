@@ -5,6 +5,10 @@ class MotorView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Scaffold(
+        appBar: AppBar(
+          title: Text('Motor Controller'),
+          centerTitle: true,
+        ),
         body: Center(
           child: Column(
             children: [
