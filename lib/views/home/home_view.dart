@@ -51,7 +51,7 @@ class _HomeViewState extends State<HomeView> {
                 color: Colors.white,
               ),
               Icon(
-                Icons.poll,
+                Icons.timeline,
                 size: 30,
                 color: Colors.white,
               ),

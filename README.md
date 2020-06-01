@@ -13,7 +13,7 @@ This app allow us to manage a simulated tractor.
             - Brake.
             - Accelerate.
 
-        - Plow
+        - Plough
 
             - Turn on.
             - Turn off.
