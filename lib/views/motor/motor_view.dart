@@ -8,25 +8,36 @@ class MotorView extends StatefulWidget {
 
 class _MotorViewState extends State<MotorView> {
   String serverData;
-  webSocketCommunication(String event) {
-    Socket socket = io('http://51.15.209.191:9000', <String, dynamic>{
-      'transports': ['websocket'],
-      'autoConnect': true,
-    });
+  Socket socket = io('http://51.15.209.191:9000', <String, dynamic>{
+    'transports': ['websocket'],
+    'autoConnect': false,
+  });
+
+  webSocketConnection() {
     socket.connect();
     socket.on('connect', (_) {
       print('connected');
       socket.emit('setclient', 'flutterApp');
-      socket.emit(event);
     });
-    socket.connect();
-    socket.on('status', (data) => print(data));
+    socket.on('status', (data) {
+      print(data);
+      setState(() {
+        serverData = data;
+      });
+    });
     socket.on('event', (data) => print(data));
     socket.on('disconnect', (_) => print('disconnect'));
-    socket.on('fromServer', (data) {
-      print("From server -> $data");
-      serverData = data;
-    });
+    socket.on('fromServer', (_) => print(_));
+  }
+
+  webSocketCommunication(String event) {
+    socket.emit(event);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    webSocketConnection();
   }
 
   @override
@@ -36,6 +47,7 @@ class _MotorViewState extends State<MotorView> {
         appBar: AppBar(
           title: Text('Motor Controller'),
           centerTitle: true,
+          
         ),
         body: Center(
           child: Column(
