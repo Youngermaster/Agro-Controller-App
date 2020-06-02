@@ -1,3 +1,4 @@
+import 'package:agro_controller_app/utils/webSocketConnection.dart';
 import 'package:agro_controller_app/views/controllers/controllers_view.dart';
 import 'package:agro_controller_app/views/stats/stats_view.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
@@ -29,6 +30,13 @@ class _HomeViewState extends State<HomeView> {
         break;
       default:
     }
+  }
+
+  @override
+  void initState() { 
+    super.initState();
+    WebSocketConnection.asignConnection('http://51.15.209.191:9000');
+    WebSocketConnection.webSocketConnection();
   }
 
   GlobalKey _bottomNavigationKey = GlobalKey();

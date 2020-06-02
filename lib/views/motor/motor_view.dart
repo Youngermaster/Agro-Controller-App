@@ -1,5 +1,5 @@
+import 'package:agro_controller_app/utils/webSocketConnection.dart';
 import 'package:flutter/material.dart';
-import 'package:socket_io_client/socket_io_client.dart';
 
 class MotorView extends StatefulWidget {
   @override
@@ -7,38 +7,6 @@ class MotorView extends StatefulWidget {
 }
 
 class _MotorViewState extends State<MotorView> {
-  String serverData;
-  Socket socket = io('http://51.15.209.191:9000', <String, dynamic>{
-    'transports': ['websocket'],
-    'autoConnect': false,
-  });
-
-  webSocketConnection() {
-    socket.connect();
-    socket.on('connect', (_) {
-      print('connected');
-      socket.emit('setclient', 'flutterApp');
-    });
-    socket.on('status', (data) {
-      print(data);
-      setState(() {
-        serverData = data;
-      });
-    });
-    socket.on('event', (data) => print(data));
-    socket.on('disconnect', (_) => print('disconnect'));
-    socket.on('fromServer', (_) => print(_));
-  }
-
-  webSocketCommunication(String event) {
-    socket.emit(event);
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    webSocketConnection();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +15,6 @@ class _MotorViewState extends State<MotorView> {
         appBar: AppBar(
           title: Text('Motor Controller'),
           centerTitle: true,
-          
         ),
         body: Center(
           child: Column(
@@ -61,7 +28,7 @@ class _MotorViewState extends State<MotorView> {
                 ),
               ),
               Text(
-                "Status: ${serverData == null ? "" : serverData}.",
+                "Status: ${WebSocketConnection.serverStatus == null ? "" : WebSocketConnection.serverStatus}.",
                 style: TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.bold,
@@ -73,7 +40,7 @@ class _MotorViewState extends State<MotorView> {
                   children: [
                     RaisedButton.icon(
                       onPressed: () {
-                        webSocketCommunication('speedup');
+                        WebSocketConnection.webSocketCommunication('speedup');
                         print("Accelarate");
                       },
                       icon: Icon(Icons.arrow_upward),
@@ -83,7 +50,7 @@ class _MotorViewState extends State<MotorView> {
                     ),
                     RaisedButton.icon(
                       onPressed: () {
-                        webSocketCommunication('brake');
+                        WebSocketConnection.webSocketCommunication('brake');
                         print("Brake");
                       },
                       icon: Icon(Icons.pause),

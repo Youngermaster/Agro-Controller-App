@@ -1,18 +1,18 @@
 import 'package:agro_controller_app/utils/webSocketConnection.dart';
 import 'package:flutter/material.dart';
 
-class PloughView extends StatefulWidget {
+class LightView extends StatefulWidget {
   @override
-  _PloughViewState createState() => _PloughViewState();
+  _LightViewState createState() => _LightViewState();
 }
 
-class _PloughViewState extends State<PloughView> {
+class _LightViewState extends State<LightView> {
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Plough Controller'),
+          title: Text('Light Controller'),
           centerTitle: true,
         ),
         body: Center(
@@ -20,7 +20,7 @@ class _PloughViewState extends State<PloughView> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Text(
-                'Plough View',
+                'Light View',
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
@@ -39,22 +39,26 @@ class _PloughViewState extends State<PloughView> {
                   children: [
                     RaisedButton.icon(
                       onPressed: () {
-                        WebSocketConnection.webSocketCommunication('plow');
-                        print("Turn on");
+                        WebSocketConnection.webSocketCommunication(
+                          'frontlights',
+                        );
+                        print("Front lights");
                       },
-                      icon: Icon(Icons.play_arrow),
+                      icon: Icon(Icons.arrow_upward),
                       color: Colors.green,
-                      label: Text("Turn on"),
+                      label: Text("Front lights"),
                       textColor: Colors.white,
                     ),
                     RaisedButton.icon(
                       onPressed: () {
-                        WebSocketConnection.webSocketCommunication('plow');
-                        print("Turn off");
+                        WebSocketConnection.webSocketCommunication(
+                          'backlights',
+                        );
+                        print("Back lights");
                       },
-                      icon: Icon(Icons.flash_off),
+                      icon: Icon(Icons.pause),
                       color: Colors.green,
-                      label: Text("Turn off"),
+                      label: Text("Back lights"),
                       textColor: Colors.white,
                     ),
                   ],

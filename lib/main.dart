@@ -13,9 +13,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.green,
-         textTheme: Theme.of(context).textTheme.apply(
-                fontFamily: 'Open Sans',
-              ),
+        textTheme: Theme.of(context).textTheme.apply(
+              fontFamily: 'Open Sans',
+            ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: HomeView(),
