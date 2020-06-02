@@ -47,7 +47,7 @@ class _WheatStatsViewState extends State<WheatStatsView> {
                   children: [
                     RaisedButton.icon(
                       onPressed: () {
-                        WebSocketConnection.webSocketCommunication('');
+                        WebSocketConnection.webSocketCommunication('wheat');
                         Future.delayed(const Duration(seconds: 5), () {
                           setState(() {
                             tractorWheat = WebSocketConnection.tractorWheat;

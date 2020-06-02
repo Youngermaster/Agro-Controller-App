@@ -56,7 +56,7 @@ class _LightViewState extends State<LightView> {
                         );
                         print("Back lights");
                       },
-                      icon: Icon(Icons.pause),
+                      icon: Icon(Icons.arrow_downward),
                       color: Colors.green,
                       label: Text("Back lights"),
                       textColor: Colors.white,
