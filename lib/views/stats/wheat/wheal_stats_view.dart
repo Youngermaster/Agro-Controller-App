@@ -1,19 +1,19 @@
 import 'package:agro_controller_app/utils/webSocketConnection.dart';
 import 'package:flutter/material.dart';
 
-class OilStatsView extends StatefulWidget {
+class WheatStatsView extends StatefulWidget {
   @override
-  _OilStatsViewState createState() => _OilStatsViewState();
+  _WheatStatsViewState createState() => _WheatStatsViewState();
 }
 
-class _OilStatsViewState extends State<OilStatsView> {
-  var tractorOil;
+class _WheatStatsViewState extends State<WheatStatsView> {
+  var tractorWheat;
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Oil Stats'),
+          title: Text('Wheat Stats'),
           centerTitle: true,
         ),
         body: Center(
@@ -21,7 +21,7 @@ class _OilStatsViewState extends State<OilStatsView> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Text(
-                'Oil Stats',
+                'Wheat Stats',
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
@@ -35,7 +35,7 @@ class _OilStatsViewState extends State<OilStatsView> {
                 ),
               ),
               Text(
-                "Oil: ${tractorOil == null ? "Unknown" : tractorOil}%",
+                "Wheat: ${tractorWheat == null ? "Unknown" : tractorWheat}%",
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -44,10 +44,10 @@ class _OilStatsViewState extends State<OilStatsView> {
               Center(
                 child: RaisedButton.icon(
                   onPressed: () {
-                    WebSocketConnection.webSocketCommunication('oil');
+                    WebSocketConnection.webSocketCommunication('wheat');
                     Future.delayed(const Duration(seconds: 5), () {
                       setState(() {
-                        tractorOil = WebSocketConnection.tractorOil;
+                        tractorWheat = WebSocketConnection.tractorWheat;
                       });
                     });
                   },

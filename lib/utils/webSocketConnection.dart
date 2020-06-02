@@ -2,6 +2,8 @@ import 'package:socket_io_client/socket_io_client.dart';
 
 class WebSocketConnection {
   static String serverStatus = "";
+  static var tractorOil;
+  static var tractorWheat;
   static String urlConnection;
   static Socket socket = io(urlConnection, <String, dynamic>{
     'transports': ['websocket'],
@@ -18,10 +20,20 @@ class WebSocketConnection {
       print('connected');
       socket.emit('setclient', 'flutterApp');
     });
+
+    socket.on('oil', (data) {
+      tractorOil = data;
+      print("oil -> $data");
+    });
+    socket.on('wheat', (data) {
+      tractorWheat = data;
+      print("wheat -> $data");
+    });
     socket.on('status', (data) {
       serverStatus = data;
       print(data);
     });
+    
     socket.on('event', (data) => print(data));
     socket.on('disconnect', (_) => print('disconnect'));
     socket.on('fromServer', (_) => print(_));
