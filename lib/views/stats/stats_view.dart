@@ -1,6 +1,6 @@
 import 'package:agro_controller_app/utils/webSocketConnection.dart';
 import 'package:agro_controller_app/views/stats/oil/oil_stats_view.dart';
-import 'package:agro_controller_app/views/stats/wheat/wheal_stats_view.dart';
+import 'package:agro_controller_app/views/stats/wheat/wheat_stats_view.dart';
 import 'package:agro_controller_app/widgets/cardSection/card_section.dart';
 import 'package:agro_controller_app/widgets/simpleChart/simple_chart.dart';
 import 'package:flutter/material.dart';
@@ -34,11 +34,8 @@ class _StatsState extends State<Stats> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-
             CardSection(OilStatsView(), 'Oil stats'),
-            CardSection(WheatStatsView(), 'Plough stats'),
-
-            // Center(child: SimpleLineChart.withSampleData()),
+            CardSection(WheatStatsView(), 'Wheat stats'),
           ],
         ),
       ),

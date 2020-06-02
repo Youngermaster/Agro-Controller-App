@@ -1,4 +1,5 @@
 import 'package:agro_controller_app/utils/webSocketConnection.dart';
+import 'package:agro_controller_app/views/stats/oil/oil_chart_view.dart';
 import 'package:flutter/material.dart';
 
 class OilStatsView extends StatefulWidget {
@@ -42,19 +43,37 @@ class _OilStatsViewState extends State<OilStatsView> {
                 ),
               ),
               Center(
-                child: RaisedButton.icon(
-                  onPressed: () {
-                    WebSocketConnection.webSocketCommunication('oil');
-                    Future.delayed(const Duration(seconds: 5), () {
-                      setState(() {
-                        tractorOil = WebSocketConnection.tractorOil;
-                      });
-                    });
-                  },
-                  icon: Icon(Icons.cloud_download),
-                  color: Colors.green,
-                  label: Text("Get oil data"),
-                  textColor: Colors.white,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    RaisedButton.icon(
+                      onPressed: () {
+                        WebSocketConnection.webSocketCommunication('oil');
+                        Future.delayed(const Duration(seconds: 5), () {
+                          setState(() {
+                            tractorOil = WebSocketConnection.tractorOil;
+                          });
+                        });
+                      },
+                      icon: Icon(Icons.cloud_download),
+                      color: Colors.green,
+                      label: Text("Get oil data"),
+                      textColor: Colors.white,
+                    ),
+                    RaisedButton.icon(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => OilChartView()),
+                        );
+                      },
+                      icon: Icon(Icons.show_chart),
+                      color: Colors.green,
+                      label: Text("See chart"),
+                      textColor: Colors.white,
+                    ),
+                  ],
                 ),
               ),
             ],
