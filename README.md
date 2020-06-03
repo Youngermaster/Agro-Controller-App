@@ -2,7 +2,7 @@
 
 This app allow us to control a simulated IOT tractor through an app, also this app is developed with flutter.
 
-The APKs are located in the `release/` folder, you will choose one depending of your phone architecture.
+The APKs are located in the [release](https://github.com/Youngermaster/Agro-Controller-App/releases) section, you will choose one depending of your phone architecture.
 
 <center>
 
