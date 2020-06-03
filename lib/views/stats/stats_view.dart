@@ -2,7 +2,6 @@ import 'package:agro_controller_app/utils/webSocketConnection.dart';
 import 'package:agro_controller_app/views/stats/oil/oil_stats_view.dart';
 import 'package:agro_controller_app/views/stats/wheat/wheat_stats_view.dart';
 import 'package:agro_controller_app/widgets/cardSection/card_section.dart';
-import 'package:agro_controller_app/widgets/simpleChart/simple_chart.dart';
 import 'package:flutter/material.dart';
 
 class Stats extends StatefulWidget {

@@ -15,7 +15,14 @@ Here are the links from the other parts of the complete project.
 <br>
 <br>
 
+## Phone App
 <img src="images/app_preview.gif" width="300" height="550">
+
+## Web App
+
+<img src="images/web_1.png" width="800" height="400">
+<img src="images/web_2.png" width="800" height="400">
+
 </center>
 
 # Structure of the app
